@@ -19,9 +19,26 @@ export default function NavBar() {
     window.addEventListener("resize", updateWidth);
     updateWidth();
   }, []);
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      const navBar = document.getElementById("navbar");
+      if (navBar && !navBar.contains(target)) {
+        setIsOpened(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpened]);
 
   return (
-    <nav className="relative w-full bg-[#f7ede2] flex flex-col items-center rounded-b-2xl md:rounded-b-none">
+    <nav
+      className="relative w-full bg-[#f7ede2] flex flex-col items-center rounded-b-2xl md:rounded-b-none"
+      id="navbar"
+    >
       <div className="h-[150px] w-full flex justify-between items-center px-3 sm:px-10">
         <Image
           src={logo}
@@ -67,6 +84,7 @@ export default function NavBar() {
             <Link
               href="/"
               className="flex w-full items-center justify-center hover:bg-yellow-100 py-3"
+              onClick={() => setIsOpened(false)}
             >
               Home
             </Link>
@@ -75,6 +93,7 @@ export default function NavBar() {
             <Link
               href="/my-ingredients"
               className="flex w-full items-center justify-center hover:bg-yellow-100 py-3"
+              onClick={() => setIsOpened(false)}
             >
               My Ingredients
             </Link>
@@ -83,6 +102,7 @@ export default function NavBar() {
             <Link
               href="/my-recipes"
               className="flex w-full items-center justify-center hover:bg-yellow-100 py-3 rounded-b-2xl"
+              onClick={() => setIsOpened(false)}
             >
               My Recipes
             </Link>
