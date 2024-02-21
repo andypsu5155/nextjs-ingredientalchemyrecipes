@@ -23,14 +23,14 @@ export default async function Home() {
 
   return (
     <>
-      <h1 className="2xl:absolute 2xl:top-[10rem] z-10 text-6xl font-bold text-white bg-black bg-opacity-50 p-10 rounded-2xl">
+      <h1 className="2xl:absolute 2xl:top-[10rem] z-10 text-3xl sm:text-6xl font-bold text-white bg-black bg-opacity-50 p-10 rounded-2xl">
         {homepage[0] && homepage[0].headerText}
       </h1>
       <Carousel
         opts={{
           align: "start",
         }}
-        className="w-[90%]"
+        className="w-[70%] sm:w-[90%]"
       >
         <CarouselContent>
           <CarouselItem className="md:basis-1/2 lg:basis-1/3">
@@ -73,11 +73,13 @@ export default async function Home() {
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
-      <p className="text-2xl">{homepage[0] && homepage[0].bodyText}</p>
-      <h2>
+      <p className="text-lg sm:text-2xl text-center mb-3">
+        {homepage[0] && homepage[0].bodyText}
+      </p>
+      <h2 className="text-xl sm:text-4xl text-center">
         To get started, add the ingredients you have to your ingredient list!
       </h2>
-      <Button className="mt-5 p-10 text-4xl">
+      <Button className="mt-5 p-10 text-xl sm:text-4xl">
         <Link href="/my-ingredients">My Ingredients</Link>
       </Button>
     </>

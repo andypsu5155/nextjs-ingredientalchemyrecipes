@@ -23,7 +23,7 @@ export default function MyIngredients() {
   return (
     <>
       <div className="w-full flex gap-5 items-center justify-center mb-5">
-        <ul className="flex gap-5 text-2xl">
+        <ul className="grid grid-cols-2 sm:grid-cols-4 gap-5 text-2xl">
           <li>
             <Button
               className={
@@ -66,7 +66,7 @@ export default function MyIngredients() {
           </li>
         </ul>
       </div>
-      <div className="w-full grid grid-cols-2 gap-10">
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-10">
         <div>
           <AddIngredient location={location} />
         </div>
@@ -80,7 +80,7 @@ export default function MyIngredients() {
                   .map((ingredient) => (
                     <li
                       key={ingredient.name}
-                      className="flex w-[50%] justify-between mb-2 border-black border-b-2 py-1"
+                      className="flex w-full xl:w-[50%] justify-between mb-2 border-black border-b-2 py-1"
                     >
                       {ingredient.name}{" "}
                       <Button
@@ -102,7 +102,18 @@ export default function MyIngredients() {
                   .filter((ingredient) => ingredient.location === "pantry")
                   .sort((a, b) => a.name.localeCompare(b.name))
                   .map((ingredient) => (
-                    <li key={ingredient.name}>{ingredient.name}</li>
+                    <li
+                      key={ingredient.name}
+                      className="flex w-full xl:w-[50%] justify-between mb-2 border-black border-b-2 py-1"
+                    >
+                      {ingredient.name}
+                      <Button
+                        onClick={() => deleteIngredient(ingredient.name)}
+                        className="h-6 w-6 p-0"
+                      >
+                        <X />
+                      </Button>
+                    </li>
                   ))}
               </ul>
             </>
@@ -115,7 +126,18 @@ export default function MyIngredients() {
                   .filter((ingredient) => ingredient.location === "fridge")
                   .sort((a, b) => a.name.localeCompare(b.name))
                   .map((ingredient) => (
-                    <li key={ingredient.name}>{ingredient.name}</li>
+                    <li
+                      key={ingredient.name}
+                      className="flex w-full xl:w-[50%] justify-between mb-2 border-black border-b-2 py-1"
+                    >
+                      {ingredient.name}
+                      <Button
+                        onClick={() => deleteIngredient(ingredient.name)}
+                        className="h-6 w-6 p-0"
+                      >
+                        <X />
+                      </Button>
+                    </li>
                   ))}
               </ul>
             </>
@@ -128,7 +150,18 @@ export default function MyIngredients() {
                   .filter((ingredient) => ingredient.location === "spices")
                   .sort((a, b) => a.name.localeCompare(b.name))
                   .map((ingredient) => (
-                    <li key={ingredient.name}>{ingredient.name}</li>
+                    <li
+                      key={ingredient.name}
+                      className="flex w-full xl:w-[50%] justify-between mb-2 border-black border-b-2 py-1"
+                    >
+                      {ingredient.name}
+                      <Button
+                        onClick={() => deleteIngredient(ingredient.name)}
+                        className="h-6 w-6 p-0"
+                      >
+                        <X />
+                      </Button>
+                    </li>
                   ))}
               </ul>
             </>

@@ -21,8 +21,9 @@ const AlchemyContext = createContext<AlchemyContextType>({
 
 // Step 2: Create a context provider component
 export function AlchemyProvider({ children }: { children: React.ReactNode }) {
-  const [ingredients, setIngredients] = useState<Ingredient[]>([
-    { name: "flour", location: "pantry" },
+  const [ingredients, setIngredients] = useState<Ingredient[]>([]);
+  /*
+  { name: "flour", location: "pantry" },
     { name: "sugar", location: "pantry" },
     { name: "butter", location: "fridge" },
     { name: "eggs", location: "fridge" },
@@ -68,7 +69,7 @@ export function AlchemyProvider({ children }: { children: React.ReactNode }) {
     { name: "garlic powder", location: "spices" },
     { name: "onion powder", location: "spices" },
     { name: "ground cloves", location: "spices" },
-  ]);
+  */
   const [recipes, setRecipes] = useState<Recipe[]>([]);
 
   return (
