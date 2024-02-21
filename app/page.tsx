@@ -80,7 +80,7 @@ export default async function Home() {
       <Button className="mt-5 p-10 text-4xl">
         <Link href="/my-ingredients">My Ingredients</Link>
       </Button>
-      <p>test</p>
+      <p>testing</p>
     </>
   );
 }
